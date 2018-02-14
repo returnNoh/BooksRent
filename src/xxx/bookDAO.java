@@ -28,7 +28,7 @@ public boolean regist_book(String name,int num) {
 		PreparedStatement pstmt = null;
 		
 		boolean check = false;
-		String sql = "insert into book values(?,?,null)";
+		String sql = "insert into book values(?,?,'admin')";
 		
 		try {
 			
