@@ -37,6 +37,8 @@ if(request.getParameter("id")!=null){
 		<input type="button" value="가계표" style="width:150pt;height:100pt;" onclick="location.href=''">
 		<input type="button" value="책, 유저 정보 수정" style="width:150pt;height:100pt;" onclick="location.href='bookRegist.jsp'">
 	</c:if>
+	<jsp:include page="Map.html"></jsp:include>
+	
 </center>
 
 

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <style>
+      #map {
+        height: 400px;
+        width: 60%;
+       }
+    </style>
+  </head>
+  <body>
+    <h3>여기에요 여기</h3>
+    <div id="map"></div>
+    <script>
+      function initMap() {
+        var uluru = {lat: 37.498872, lng: 127.028196}; // 처음에 센터 위치
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 15,//확대 축소 수치
+          center: uluru
+        });
+        var marker = new google.maps.Marker({ //  마커객체 생성 
+          position: {lat: 37.498872, lng: 127.028196}, // 마커 위치 설정
+          map: map
+        });
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCVlODe5vr86imNiC2k01MLD47VLU8kqFM&callback=initMap">
+    </script>
+  </body>
+</html>
