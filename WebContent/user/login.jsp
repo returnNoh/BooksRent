@@ -9,9 +9,15 @@
 <title>액션태그 연습</title>
 </head>
 <body>
-<c:remove var="id" scope="session"/>
-<c:redirect url="index.jsp"/>
+<form name="login" action="/BooksRent/user/loginPro.books">
+<center>
+아이디 : <input type="text" name="id" size="20"><br>
+비밀번호 : <input type="text" name="pass" size="20">
+<hr>
+<input type="submit" value="로그인">&emsp;<input type="button" value="뒤로가기" onclick="history.back()">
+<br><input type="button" value="계정정보를 잃어버리셨습니까?">
 
-
+</center>
+</form>
 </body>
 </html>

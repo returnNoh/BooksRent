@@ -60,25 +60,19 @@ body{background:#fff url(../images/bg3.jpg) repeat-x bottom}
 			
 			  <td colspan="4"><input type="name" name="name" size="15" maxlength="15" required></td>
 			   </tr>
-<!--
+
 			    <tr>
 			  
 			   <td class="x" colspan="2" >전자우편＊</td>
 			
-			  <td colspan="4"><input type="text" name="mail" size="10" maxlength="10" required>
-			  @
-			  <input type="text" name="mail2" size="15" maxlength="15" required>
-			  <select name="email">
-			  <option>직접입력</option>
-			  <option>네이버</option>
-			  <option>다음</option>
-			  <option>구글</option>
-			  <option>야후</option>
-			  <option>msn</option>
+			  <td colspan="4"><input type="email" name="mail" size="20" maxlength="10" required>
+			  <input type="button" value="인증번호보내기" onclick="">
+			  
+			  
 
 			  </td>
 			   </tr>
-
+<!--
 			    <tr>
 			  
 			   <td class="x" colspan="2">주소＊</td>
