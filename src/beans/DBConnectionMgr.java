@@ -23,7 +23,7 @@
  *
  */
 
-package xxx;
+package beans;
 
 import java.sql.*;
 import java.util.Properties;

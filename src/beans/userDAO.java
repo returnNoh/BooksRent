@@ -1,9 +1,7 @@
-package xxx;
+package beans;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-
-import xxx.*;
 
 public class userDAO {
 

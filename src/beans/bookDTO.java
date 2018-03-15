@@ -1,4 +1,4 @@
-package xxx;
+package beans;
 
 public class bookDTO {
 	private String name;
