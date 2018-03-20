@@ -13,5 +13,5 @@ DB설계 , 프론트엔드(부트스트랩,jquery) , 모델2 , 스프링 까지 
 
 그외 프로젝트
 
--[팀프로젝트 TodayLunch](returnNoh/TodayLunch)</br>
--[개인프로젝트 CoinTest](returnNoh/coinTest)
+-[팀프로젝트 TodayLunch](https://github.com/returnNoh/TodayLunch)</br>
+-[개인프로젝트 CoinTest](https://github.com/returnNoh/cointest)
