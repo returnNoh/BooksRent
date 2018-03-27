@@ -17,23 +17,23 @@
 <center>
 
 <c:if test="${empty(sessionScope.id)}">
-<input type="button" value="로그인 하기" style="width:150pt;height:100pt;" onclick="location.href='/BooksRent/user/login.books'">
-<input type="button" value="회원가입 하기" style="width:150pt;height:500pt;" onclick="location.href='/BooksRent/user/regist.books'">
+<input type="button" value="로그인 하기" style="width:150pt;height:100pt;" onclick="location.href='login.books'">
+<input type="button" value="회원가입 하기" style="width:150pt;height:500pt;" onclick="location.href='regist.books'">
 </c:if>
 <c:if test="${not empty(sessionScope.id)}">
 <c:out value="${sessionScope.id}님 환영합니다."/>
-<input type="button" value="로그오프" style="width:150pt;height:100pt;" onclick="location.href='/BooksRent/user/logout.books'">
+<input type="button" value="로그오프" style="width:150pt;height:100pt;" onclick="location.href='logout.books'">
 </c:if>
 
 <hr>
 	<c:if test="${not empty(sessionScope.id)}">
-		<input type="button" value="도서 검색하기" style="width:150pt;height:100pt;" onclick="location.href='/BooksRent/board/search.books">
-		<input type="button" value="도서 대여하기" style="width:150pt;height:500pt;" onclick="location.href='/BooksRent/rent/rent.books'">
+		<input type="button" value="도서 검색하기" style="width:150pt;height:100pt;" onclick="location.href='search.books'">
+		<input type="button" value="도서 대여하기" style="width:150pt;height:500pt;" onclick="location.href='rent.books'">
 	</c:if>
 <hr>
 	<c:if test="${sessionScope.id=='admin'}">
 		<input type="button" value="가계표" style="width:150pt;height:100pt;" onclick="location.href=''">
-		<input type="button" value="책, 유저 정보 수정" style="width:150pt;height:100pt;" onclick="location.href='/BooksRent/admin/bookRegist.books'">
+		<input type="button" value="책, 유저 정보 수정" style="width:150pt;height:100pt;" onclick="location.href='bookRegist.books'">
 	</c:if>
 	<jsp:include page="Map.html"></jsp:include>
 	

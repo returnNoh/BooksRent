@@ -3,15 +3,18 @@ package action;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
+//@Controller
 public class LogoutAction implements CommandAction {
 
-	@Override
+	//@RequestMapping("/logout.books")
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) throws Throwable {
 		// TODO Auto-generated method stub
 		
-		HttpSession session = request.getSession();
-		session.removeAttribute("id");
+		
+		
+		
+		request.getSession().removeAttribute("id");
+		
 		
 		return "/main.jsp";
 	}

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="member">
+ 
+ 	<select id="login" parameterType="member_info" resultType="member_info">
+ 		select p_email,grade from member_login where p_email=#{p_email} and p_passwd=#{p_passwd}
+ 	</select>
+ 	
+ 	<select id="info" parameterType="String" resultType="member_info">
+ 		select * from member_info where p_email=#{p_email}
+ 	</select>
+ 	
+ 	
+ 	
+ 
+ 
+</mapper>

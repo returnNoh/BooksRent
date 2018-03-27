@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="board">
+ 
+ <!-- springboard테이블에서 SQL작업 (1. 글 목록보기) 
+ 		 1.id속성값은 sql구분인자. 
+ 		 2.parameterType(sql실행시 매개변수가 필요하면 필요한구문). where num=? -> where num=#{멤버변수이름과 동일}
+ 		 parameterType="java.lang.Integer" or "Integer" or "int"
+ 		 3.resultType(반환값이 필요할경우 - select문의 경우만 씀)는 리턴객체구분이다
+ -->
+ <select id="list" resultType="board">
+ 	SELECT * FROM springboard ORDER BY num desc
+ </select>
+
+<!-- 2.최대값 구하기 -->
+<select id="getNewNum" resultType="int">
+	SELECT max(num) FROM springboard
+</select>
+ 
+ <!-- 3. 글쓰기 -->
+ <insert id="write" parameterType="board">
+ insert into springboard(num,author,title,content,writeday)
+ values(#{num},#{author},#{title},#{content},sysdate)
+ </insert>
+ <!-- 4.글 상세보기 -->
+ <select id="retrieve" parameterType="String" resultType="board">
+ select * from springboard where num=#{num}
+ </select>
+ <!-- 4-2.글 조회수 증가 -->
+ <update id="updateReadcnt" parameterType="String">
+ update springboard set readcnt=readcnt+1 where num=#{num}
+ </update>
+ <!-- 5.글 수정하기 -->
+ <update id="update" parameterType="board">
+ update springboard set title=#{title},content=#{content},author=#{author} where num=#{num}
+ </update>
+ <!-- 6.글 삭제하기 -->
+ <delete id="delete" parameterType="int">
+ delete springboard where num=#{num}
+ </delete>
+ <!-- 7.글 검색하기 -->
+ <select id="search" parameterType="board" resultType="board">
+ SELECT * FROM springboard where ${searchName} like '%${searchValue}%' ORDER BY num desc
+ </select>
+ 
+ 
+</mapper>

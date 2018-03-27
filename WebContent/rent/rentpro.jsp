@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="beans.*"%>
+    pageEncoding="UTF-8" import="com.books.dao.*"%>
         <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
     		<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -10,7 +10,7 @@
 <%
 int booknum = Integer.parseInt(request.getParameter("booknum"));
 
-bookDAO dao = new bookDAO();
+BooksDao dao = new SqlBooksDAO();
 
 int check=dao.rent_book((String)session.getAttribute("id"), booknum);
 %>
