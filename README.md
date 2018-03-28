@@ -8,6 +8,22 @@ DB설계 , 프론트엔드(부트스트랩,jquery) , 모델2 , 스프링 까지 
 
 여유가 생겨 판매기능, 상품리스트 , 검색 등 여러가지 기능을 추가하여 다시 건드린 프로젝트입니다.
 
+스프링을 아직 완전히 습득하지 못하여 모델 2로 기능면만 구현하였고 스프링 습득 후 다시 건드릴 예정입니다.
+
+
+###### 기능구현 
+- [도서 대출 로직](WebContent/Register)
+- [로그인(세션관리)](WebContent/Login)
+- [로그인 로그 저장(데이터 수집)](WebContent/Mypage_p)
+- [책판매량 및 대출순위(데이터 활용)](WebContent/Mypage_p)
+- [책 추가(관리자)](WebContent/Admin)
+- [구글맵 api](WebContent/map.jsp)
+
+###### DB 설계
+- [Exerd](BooksRent.exerd)
+
+
+
 
 ### [팀프로젝트 TodayLunch](https://github.com/returnNoh/TodayLunch)
 
