@@ -7,7 +7,31 @@
 
 <!-- @Autowired -->
 <bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor" ></bean>
+
+
+<!-- tiles -->
+<!-- 1타일즈쓸까  -->
+
+<!-- <bean id="viewResolver" 
+     class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+        <property name="viewClass"
+         value="org.springframework.web.servlet.view.tiles3.TilesView"/>
+        <property name="order" value="1"/>
+    </bean>
+    
+    
+<bean id="tilesConfigurer" 
+      class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
+        <property name="definitions">
+            <list>
+                <value>/default/tilesdef.xml</value>
+            </list>
+        </property>
+    </bean> -->
+    <!-- 타일즈 끝 -->
+    
 <!-- (4~5) viewResolver(위치,경로,이동할 페이지의 확장자를 지정) -->
+
 <bean id="viewResolver" 
 class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 <property name="viewClass" 
@@ -17,8 +41,9 @@ value="org.springframework.web.servlet.view.JstlView"></property>
 </bean>
 
 
+
 <!-- (2) 컨트롤러 이름을 알려주는 HanderMapping 등록-->
-<context:annotation-config/>
+ <context:annotation-config/>
 
 <!-- (3)  컨트롤러를 등록
 		<bean name="/요청명령어.do" class="상위패키지명...처리할 컨트롤러클래스명"/>
@@ -45,6 +70,11 @@ value="org.springframework.web.servlet.view.JstlView"></property>
  class="org.springframework.web.servlet.mvc.ParameterizableViewController">
  <property name="viewName" value="main"></property>
  </bean>
+ <bean name="/main2.books"
+ class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+ <property name="viewName" value="main2"></property>
+ </bean>
+
  
  
  

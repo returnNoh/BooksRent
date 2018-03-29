@@ -1,4 +1,4 @@
 
 <%
-response.sendRedirect(request.getContextPath()+"/main.books");
+response.sendRedirect(request.getContextPath()+"/main2.books");
 %>
