@@ -23,7 +23,7 @@
                         <i class="fa fa-align-justify"></i>
                     </button>
                     <a class="btn btn-primary navbar-toggle" href="basket.html">
-                        <i class="fa fa-shopping-cart"></i>  <span class="hidden-xs">3 items in cart</span>
+                        <i class="fa fa-shopping-cart"></i>  <span class="hidden-xs">소지중인 책</span>
                     </a>
                     <button type="button" class="navbar-toggle btn-default" data-toggle="collapse" data-target="#search">
                         <span class="sr-only">Toggle search</span>
