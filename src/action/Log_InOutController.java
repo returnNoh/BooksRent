@@ -5,8 +5,8 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.member.dao.MemberDTO;
 import com.member.dao.MemberDao;
@@ -18,30 +18,38 @@ public class Log_InOutController {
 	
 	
 	
-	
-	@RequestMapping(value="login.books",method=RequestMethod.POST)
-	public String Login(@RequestParam("p_email") String p_email,
-			@RequestParam("p_passwd") String p_passwd,
-			HttpServletRequest request) {
-		
+	//(value="login.books",method=RequestMethod.POST)
+	@RequestMapping("login.books")
+	public ModelAndView Login(HttpServletRequest request) {
+//		@RequestParam("p_email") String p_email,
+//		@RequestParam("p_passwd") String p_passwd,
+		ModelAndView mav = new ModelAndView("redirect:/main2.books");
+		String p_email = request.getParameter("p_email");
+		String p_passwd = request.getParameter("p_passwd");
 		MemberDTO check = new MemberDTO();
 		check.setP_email(p_email);
 		check.setP_passwd(p_passwd);
-		MemberDTO result = dao.Login(check);
+		System.out.println(p_email+p_passwd);
+		//MemberDTO result = dao.Login(check);
+		int result = dao.Login(check);
+		String result2 = "실패";
 		
 		
-		if(result!=null) { // 로그인정보가 있을경우
-			request.getSession().setAttribute("p_email", check.getP_email());
-			request.getSession().setAttribute("grade", check.getGrade());
+		if(result==1) { // 로그인정보가 있을경우
+			//request.getSession().setAttribute("p_email", check.getP_email());
+			request.getSession().setAttribute("grade", result);
 			System.out.println("성공이다!!!!!");
+			result2="성공";
+			
 		}else {
 			//ajax로 문자열만 리턴받을 방법은?
 			//
 			System.out.println("저는 빠가입니다");
+			result2="실패";
 		}
 		
-		return "jsonView";
 		
+		return mav;
 	}
 //	
 //	@ModelAttribute("command")

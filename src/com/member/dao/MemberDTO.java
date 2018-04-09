@@ -1,9 +1,11 @@
 package com.member.dao;
 
+import java.sql.Timestamp;
+
 public class MemberDTO {
 		private String p_email,p_nic,p_name,p_passwd;
 		private int p_num,grade;
-		
+		private Timestamp con_time;
 		
 		public String getP_email() {
 			return p_email;

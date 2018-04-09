@@ -138,11 +138,10 @@
                             <input type="password" class="form-control" name="p_passwd" id="p_passwd" placeholder="password">
                         </div>
 
-                        <p class="text-center">
+                    </form>
+                    <p class="text-center">
                             <button class="btn btn-primary" onclick="Login()"><i class="fa fa-sign-in"></i> Log in</button>
                         </p>
-
-                    </form>
 
                     <p class="text-center text-muted">가입하지않으셨습니까?</p>
                     <p class="text-center text-muted"><a href="register.books"><strong>지금 회원가입하기!</strong></a>
@@ -156,17 +155,20 @@
 <script>
 
 function Login(){
-	var p_email=$('#p_email').val()
-	var p_passwd=$('#p_passwd').val()
+	var email=$('#p_email').val()
+	var passwd=$('#p_passwd').val()
+	
+	
 	$.ajax({
-		url : "login.books",type:"post",
-		item:{"p_email":p_email,"p_passwd":p_passwd},
+		url : "login.books",
+		data:{p_email:email,p_passwd:passwd},
 		success : function(data) {
-			alert(data)
+			location.reload()
 			return
-		},error : function(){alert('error')}
+		},error : function(){alert('정보가 없습니다.')}
 	})
 }
+
 
 </script>
 
