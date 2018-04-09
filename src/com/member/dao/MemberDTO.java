@@ -1,8 +1,8 @@
 package com.member.dao;
 
 public class MemberDTO {
-		private String p_email,p_nic,p_name;
-		private int p_num;
+		private String p_email,p_nic,p_name,p_passwd;
+		private int p_num,grade;
 		
 		
 		public String getP_email() {
@@ -28,6 +28,18 @@ public class MemberDTO {
 		}
 		public void setP_num(int p_num) {
 			this.p_num = p_num;
+		}
+		public String getP_passwd() {
+			return p_passwd;
+		}
+		public void setP_passwd(String p_passwd) {
+			this.p_passwd = p_passwd;
+		}
+		public int getGrade() {
+			return grade;
+		}
+		public void setGrade(int grade) {
+			this.grade = grade;
 		}
 		
 

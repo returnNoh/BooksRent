@@ -6,7 +6,7 @@
 <!-- 1./WEB-INF/jdbc.properties 파일 불러오기-->
 <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 <property name="locations">
-<list><value>WEB-INF/jdbc.properties</value></list>
+<list><value>WEB-INF/dbtest/dbmysql.properties</value></list>
 </property>
 </bean>
 

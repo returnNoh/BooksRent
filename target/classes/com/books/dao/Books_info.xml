@@ -5,7 +5,92 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="books">
  
-<!-- 1. 검색어에 따른 책 분류 -->
+<!-- 1. 검색어에 따른 책 분류 리스트 개수 불러오기 -->
+
+<select id="selectCount" parameterType="map" resultType="int">
+ 		select count(*) from BooksRent
+ 		<where>
+ 					<if test="keyWord!=null and keyField=='name'">
+ 						book_name like CONCAT('%',#keyWord#,'%')
+ 					</if>
+ 					<if test="keyWord!=null and keyField=='company'">
+ 						book_company like CONCAT('%',#keyWord#,'%')
+ 					</if>
+ 					<if test="keyWord!=null and keyField=='tag'">
+ 						book_tag like CONCAT('%',#keyWord#,'%')
+ 					</if>
+ 					<if test="keyWord!=null and keyField=='num'">
+ 						book_num like CONCAT('%',#keyWord#,'%')
+ 					</if>
+ 					<if test="keyWord!=null and keyField=='all'">
+ 						book_name like CONCAT('%',#keyWord#,'%') or
+ 						book_company like CONCAT('%',#keyWord#,'%') or
+ 						book_tag like CONCAT('%',#keyWord#,'%') or
+ 						book_num like CONCAT('%',#keyWord#,'%')
+ 						
+
+ 					</if>
+ 					</where>
+ 	</select>
+ 	
+ 	<!-- 2. 검색어에 따른 책 분류 리스트 불러오기 -->
+ 	<!-- 오라클 -->
+ 	<!-- <select id="selectList" parameterType="map" resultType="BoardCommand">
+ 		select seq,writer,title,content,pwd,hit,regdate,filename  
+ 		from (select a.*,rownum rnum
+ 				from (select * from springboard2
+ 					<where>
+ 					<if test="keyWord!=null and keyField=='name'">
+ 						book_name like '%'||#{keyWord}||'%'
+ 					</if>
+ 					<if test="keyWord!=null and keyField=='company'">
+ 						book_company like '%'||#{keyWord}||'%'
+ 					</if>
+ 					<if test="keyWord!=null and keyField=='tag'">
+ 						book_tag like '%'||#{keyWord}||'%'
+ 					</if>
+ 					<if test="keyWord!=null and keyField=='num'">
+ 						book_num like '%'||#{keyWord}||'%'
+ 					</if>
+ 					<if test="keyWord!=null and keyField=='all'">
+ 						book_name like '%'||#{keyWord}||'%' or
+ 						book_company like '%'||#{keyWord}||'%' or
+ 						book_tag like '%'||#{keyWord}||'%' or
+ 						book_num like '%'||#{keyWord}||'%'
+ 					</if>
+ 					</where>
+ 					order by name) a) 
+ 					<![CDATA[where rnum>=#{start} and rnum <=#{end}]]>
+ 	</select> -->
+ 	<!-- MySql -->
+ 	<select id="selectList" parameterType="map" resultType="books_info">
+ 		select *
+ 		from BooksRent
+ 					<where>
+ 					<if test="keyWord!=null and keyField=='name'">
+ 						book_name like CONCAT('%',#keyWord#,'%')
+ 					</if>
+ 					<if test="keyWord!=null and keyField=='company'">
+ 						book_company like CONCAT('%',#keyWord#,'%')
+ 					</if>
+ 					<if test="keyWord!=null and keyField=='tag'">
+ 						book_tag like CONCAT('%',#keyWord#,'%')
+ 					</if>
+ 					<if test="keyWord!=null and keyField=='num'">
+ 						book_num like CONCAT('%',#keyWord#,'%')
+ 					</if>
+ 					<if test="keyWord!=null and keyField=='all'">
+ 						book_name like CONCAT('%',#keyWord#,'%') or
+ 						book_company like CONCAT('%',#keyWord#,'%') or
+ 						book_tag like CONCAT('%',#keyWord#,'%') or
+ 						book_num like CONCAT('%',#keyWord#,'%')
+ 					</if>
+ 					</where>
+ 					order by time_book_insert desc
+ 	</select>
+
+<!-- 3. 책 상세보기 .. 하지말까.. -->
+
 
  
 </mapper>

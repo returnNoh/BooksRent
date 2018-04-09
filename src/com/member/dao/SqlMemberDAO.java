@@ -9,14 +9,21 @@ public class SqlMemberDAO extends SqlSessionDaoSupport implements MemberDao {
 	public MemberDTO Login(MemberDTO dto) throws DataAccessException {
 		// TODO Auto-generated method stub
 		
-		return getSqlSession().selectOne("member.login", dto);
+		return getSqlSession().selectOne("login", dto);
 	}
 
 	@Override
 	public MemberDTO Member_Info(String p_email) throws DataAccessException {
-		// TODO Auto-generated method stub
 		
-		return getSqlSession().selectOne("member.info", p_email);
+		return getSqlSession().selectOne("info", p_email);
 	}
+
+	@Override
+	public void Member_Register(MemberDTO dto) throws DataAccessException {
+		// TODO Auto-generated method stub
+		getSqlSession().insert("register",dto);
+	}
+
+	
 
 }

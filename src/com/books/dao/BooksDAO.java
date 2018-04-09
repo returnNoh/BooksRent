@@ -8,4 +8,6 @@ public interface BooksDao {
 		
 	public List<BooksDTO> bookList(Map<String,String> map);
 	
+	public BooksDTO detail();
+	
 }

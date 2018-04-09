@@ -15,4 +15,10 @@ public class SqlBooksDAO extends SqlSessionDaoSupport implements BooksDao {
 		return null;
 	}
 
+	@Override
+	public BooksDTO detail() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

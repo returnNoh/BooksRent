@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
         <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+        
+        
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -8,6 +10,7 @@
 <title>액션태그 연습</title>
 </head>
 <body>
+
 
 <div class="navbar navbar-default navbar-fixed-top yamm" role="navigation" id="navbar">
         <div class="container">
@@ -57,14 +60,16 @@
                     </li>
                     <li><a href="contact.html">공지사항</a>
                     </li>
+                    
                 </ul>
 
             </div>
             <!--/.nav-collapse -->
-
+			<c:if test="${not empty p_email}">
             <div class="navbar-collapse collapse right" id="basket-overview">
-                <a href="basket.html" class="btn btn-primary navbar-btn"><i class="fa fa-shopping-cart"></i><span class="hidden-sm">3 items <span class="hidden-md">in cart</span></span></a>
+                <a href="basket.html" class="btn btn-primary navbar-btn"><i class="fa fa-shopping-cart"></i><span class="hidden-sm">소지한 책 <span class="hidden-md">보러가기</span></span></a>
             </div>
+            </c:if>
             <!--/.nav-collapse -->
 
             <div class="navbar-collapse collapse right">
@@ -73,13 +78,25 @@
                     <i class="fa fa-search"></i>
                 </button>
             </div>
-
+			
+			<c:if test="${empty p_email}">
             <div class="navbar-collapse collapse right">
                 <button type="button" class="btn navbar-btn btn-default" data-toggle="modal" data-target="#login-modal">
                     <span class="sr-only">User login</span>
                     <i class="fa fa-users"></i>
                 </button>
             </div>
+            </c:if>
+            <c:if test="${not empty p_email}">
+            <div class="navbar-collapse collapse right">
+                <!-- <button type="button" class="btn navbar-btn btn-default" data-toggle="modal" data-target="#login-modal"> -->
+                <a class="btn navbar-btn btn-default" href="logout.books">
+                    <span class="sr-only">User logout</span>
+                    <i class="fa fa-users"></i>
+                    </a>
+                <!-- </button> -->
+            </div>
+            </c:if>
 
             <div class="collapse clearfix" id="search">
 
@@ -112,28 +129,46 @@
                     <h4 class="modal-title" id="Login">Customer login</h4>
                 </div>
                 <div class="modal-body">
-                    <form action="login.books" method="post">
+                    <form id="login_form" method="post">
                         <div class="form-group">
-                            <input type="text" class="form-control" id="email" placeholder="email">
+                            <input type="text" class="form-control" name="p_email" id="p_email" placeholder="email">
+                            
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-control" id="password" placeholder="password">
+                            <input type="password" class="form-control" name="p_passwd" id="p_passwd" placeholder="password">
                         </div>
 
                         <p class="text-center">
-                            <button class="btn btn-primary"><i class="fa fa-sign-in"></i> Log in</button>
+                            <button class="btn btn-primary" onclick="Login()"><i class="fa fa-sign-in"></i> Log in</button>
                         </p>
 
                     </form>
 
                     <p class="text-center text-muted">가입하지않으셨습니까?</p>
                     <p class="text-center text-muted"><a href="register.books"><strong>지금 회원가입하기!</strong></a>
-
+																
                 </div>
             </div>
         </div>
     </div>
 
+
+<script>
+
+function Login(){
+	var p_email=$('#p_email').val()
+	var p_passwd=$('#p_passwd').val()
+	$.ajax({
+		url : "login.books",type:"post",
+		item:{"p_email":p_email,"p_passwd":p_passwd},
+		success : function(data) {
+			alert(data)
+			return
+		},error : function(){alert('error')}
+	})
+}
+
+</script>
 
 </body>
 </html>
