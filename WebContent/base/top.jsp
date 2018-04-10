@@ -61,7 +61,7 @@
                         </ul>
                     </li>
                     
-                    <li><a href="contact.html">책 목록</a>
+                    <li><a href="bookList.books">책 목록</a>
                     </li>
                     
                     <li><a href="contact.html">신간</a>

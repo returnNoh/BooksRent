@@ -125,7 +125,7 @@ _________________________________________________________ -->
     <script src="../base/js/jquery.cookie.js"></script>
     <script src="../base/js/front.js"></script>
 	<script>
-	function EmailCheck(){
+	/* function EmailCheck(){
 		var email = $('#email').val()
 		$.ajax({url:"emailcheck.books",item:{"email":email},success:function(data){
 			$('#check_num').remove()
@@ -133,7 +133,7 @@ _________________________________________________________ -->
 					'<input type="button" value="번호인증" onclick="function(){var check_num=$("#check_num").val()'+
 				'if(check_num=='+data+'){alert("인증완료")}else{alert("번호다름")}}">')
 		}})
-	}
+	} */
 	
 	</script>
     

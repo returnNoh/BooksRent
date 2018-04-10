@@ -6,7 +6,9 @@ import org.springframework.dao.DataAccessException;
 
 public interface BooksDao {
 		
-	public List<BooksDTO> bookList(Map<String,String> map);
+	public List<BooksDTO> bookList(Map<String, Object> map);
+	
+	public int bookListCount(Map<String, Object> map);
 	
 	public BooksDTO detail();
 	

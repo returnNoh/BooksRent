@@ -7,7 +7,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  
 <!-- 1. 검색어에 따른 책 분류 리스트 개수 불러오기 -->
 
-<select id="selectCount" parameterType="map" resultType="int">
+<select id="selectBookCount" parameterType="map" resultType="int">
  		select count(*) from BooksRent
  		<where>
  					<if test="keyWord!=null and keyField=='name'">
@@ -63,7 +63,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  					<![CDATA[where rnum>=#{start} and rnum <=#{end}]]>
  	</select> -->
  	<!-- MySql -->
- 	<select id="selectList" parameterType="map" resultType="books_info">
+ 	<select id="selectBookList" parameterType="map" resultType="books_info">
  		select *
  		from BooksRent
  					<where>

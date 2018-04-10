@@ -9,10 +9,15 @@ import org.springframework.dao.DataAccessException;
 public class SqlBooksDAO extends SqlSessionDaoSupport implements BooksDao {
 
 	@Override
-	public List<BooksDTO> bookList(Map<String, String> map) throws DataAccessException {
+	public List<BooksDTO> bookList(Map<String, Object> map) throws DataAccessException {
 		// TODO Auto-generated method stub
 		
-		return getSqlSession().selectList("books.list");
+		return getSqlSession().selectList("selectBookList",map);
+	}
+	@Override
+	public int bookListCount(Map<String, Object> map) {
+		// TODO Auto-generated method stub
+		return getSqlSession().selectOne("selectBookCount", map);
 	}
 
 	@Override
@@ -26,5 +31,7 @@ public class SqlBooksDAO extends SqlSessionDaoSupport implements BooksDao {
 		// TODO Auto-generated method stub
 		getSqlSession().insert("book_regist", dto);
 	}
+
+	
 
 }
