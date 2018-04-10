@@ -2,12 +2,16 @@ package com.books.dao;
 
 import java.sql.Timestamp;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class BooksDTO {
 	private String book_name,book_company,book_tag;
 	private int book_num;
 	private Timestamp time_book_insert;
-//	스프링화에서 추가 - 검색분야 , 검색어
+//	스프링화에서 추가 - 검색분야 , 검색어 , 파일이름
 	private String searchName,searchValue;
+	private MultipartFile upload;
+	private String book_filename;
 	
 	
 	
@@ -52,6 +56,18 @@ public class BooksDTO {
 	}
 	public void setSearchValue(String searchValue) {
 		this.searchValue = searchValue;
+	}
+	public String getBook_filename() {
+		return book_filename;
+	}
+	public void setBook_filename(String book_filename) {
+		this.book_filename = book_filename;
+	}
+	public MultipartFile getUpload() {
+		return upload;
+	}
+	public void setUpload(MultipartFile upload) {
+		this.upload = upload;
 	}
 	
 	

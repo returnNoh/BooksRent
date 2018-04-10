@@ -33,7 +33,7 @@ public class RegisterController {
 		dto.setP_passwd(p_passwd);
 		dto.setP_name(p_name);
 		dto.setP_nic(p_nic);
-		dto.setP_num(dao.getNum());
+		dto.setP_num(dao.GetNum());
 		dao.Member_Register(dto);
 		
 		return new ModelAndView("redirect:/main2.books");

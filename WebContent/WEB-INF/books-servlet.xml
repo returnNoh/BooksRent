@@ -76,7 +76,7 @@ value="org.springframework.web.servlet.view.JstlView"></property>
  </bean>
  <bean class="action.RegisterController"/>
   <bean class="action.Log_InOutController"/>
- 
+ <bean class="action.BookRegistController"/>
  <bean id="emailcheck" class="mail.Email"/>
 
 

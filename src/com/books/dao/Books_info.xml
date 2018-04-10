@@ -92,5 +92,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <!-- 3. 책 상세보기 .. 하지말까.. -->
 
 
+<!-- 4. 책 추가하기  -->
+
+<insert id="book_regist" parameterType="books_info">
+	insert into books_info values(
+	#{book_num},#{book_name},#{book_company},
+	#{book_tag},now(),#{book_filename,jdbcType=VARCHAR})
+</insert>
+
  
 </mapper>

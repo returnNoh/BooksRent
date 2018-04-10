@@ -21,9 +21,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  		insert into member_info values(#{p_email},#{p_nic},#{p_num},#{p_passwd},#{p_name},now())
  	</insert>
  	
- 	<insert id="login_log" parameterType="member_info">
- 		insert into member_log p_email,con_time value(#{p_email},now())
+ 	<insert id="log_insert" parameterType="member_info">
+ 		insert into member_log value(#{p_email},#{con_time},0)
  	</insert>
+ 	
+ 	<update id="log_update" parameterType="member_info">
+ 		update member_log set con_result=1 where con_time=#{con_time}
+ 	</update>
  	
  	
  	

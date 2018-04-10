@@ -1,5 +1,7 @@
 package com.member.dao;
 
+import java.sql.Timestamp;
+
 import org.mybatis.spring.support.SqlSessionDaoSupport;
 import org.springframework.dao.DataAccessException;
 
@@ -25,9 +27,21 @@ public class SqlMemberDAO extends SqlSessionDaoSupport implements MemberDao {
 	}
 
 	@Override
-	public int getNum() {
+	public int GetNum() {
 		// TODO Auto-generated method stub
 		return getSqlSession().selectOne("getNum");
+	}
+
+	@Override
+	public void Log_Insert(MemberDTO dto) {
+		// TODO Auto-generated method stub
+		getSqlSession().insert("log_insert", dto);
+	}
+
+	@Override
+	public void Log_Update(MemberDTO dto) {
+		// TODO Auto-generated method stub
+		getSqlSession().update("log_update",dto);
 	}
 
 	

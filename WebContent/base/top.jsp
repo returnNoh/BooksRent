@@ -52,6 +52,14 @@
                             </li>
                         </ul>
                     </li>
+                    <li class="active dropdown normal-dropdown"><a href="index.html" class="dropdown-toggle" data-toggle="dropdown">관리자전용<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="book/register.books">책 목록 및 추가</a>
+                            </li>
+                            <li><a href="index2.html">정보수정</a>
+                            </li>
+                        </ul>
+                    </li>
                     
                     <li><a href="contact.html">책 목록</a>
                     </li>

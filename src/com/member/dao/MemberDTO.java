@@ -43,6 +43,12 @@ public class MemberDTO {
 		public void setGrade(int grade) {
 			this.grade = grade;
 		}
+		public Timestamp getCon_time() {
+			return con_time;
+		}
+		public void setCon_time(Timestamp con_time) {
+			this.con_time = con_time;
+		}
 		
 
 }
