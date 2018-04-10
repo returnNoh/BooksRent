@@ -4,7 +4,7 @@ import java.io.File;
 
 public class FileUtil {
 		//업로드 경로 및 다운로드 경로 (상대경로 x 절대경로써야함) 다운로드 , 수정
-	public static final String UPLOAD_PATH="/Users/Inwook/eclipse-workspace/SpringFileBoard/src/main/webapp/upload";
+	public static final String UPLOAD_PATH="/Users/Inwook/eclipse-workspace/BooksRent/WebContent/book_image";
 	/*
 	 * 탐색기내에서 존재하는 파일(OriginalFileName)
 	 * 파일 이름 변경,변경할 이름을 지정해주는 메소드

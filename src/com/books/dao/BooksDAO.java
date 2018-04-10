@@ -10,4 +10,6 @@ public interface BooksDao {
 	
 	public BooksDTO detail();
 	
+	public void book_regist(BooksDTO dto);
+	
 }

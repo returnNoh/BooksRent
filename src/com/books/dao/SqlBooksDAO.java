@@ -11,14 +11,20 @@ public class SqlBooksDAO extends SqlSessionDaoSupport implements BooksDao {
 	@Override
 	public List<BooksDTO> bookList(Map<String, String> map) throws DataAccessException {
 		// TODO Auto-generated method stub
-		getSqlSession().selectList("books.list");
+		
+		return getSqlSession().selectList("books.list");
+	}
+
+	@Override
+	public BooksDTO detail() throws DataAccessException {
+		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public BooksDTO detail() {
+	public void book_regist(BooksDTO dto) throws DataAccessException {
 		// TODO Auto-generated method stub
-		return null;
+		getSqlSession().insert("book_regist", dto);
 	}
 
 }

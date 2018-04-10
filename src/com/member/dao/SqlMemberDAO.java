@@ -27,19 +27,19 @@ public class SqlMemberDAO extends SqlSessionDaoSupport implements MemberDao {
 	}
 
 	@Override
-	public int GetNum() {
+	public int GetNum() throws DataAccessException {
 		// TODO Auto-generated method stub
 		return getSqlSession().selectOne("getNum");
 	}
 
 	@Override
-	public void Log_Insert(MemberDTO dto) {
+	public void Log_Insert(MemberDTO dto) throws DataAccessException {
 		// TODO Auto-generated method stub
 		getSqlSession().insert("log_insert", dto);
 	}
 
 	@Override
-	public void Log_Update(MemberDTO dto) {
+	public void Log_Update(MemberDTO dto) throws DataAccessException {
 		// TODO Auto-generated method stub
 		getSqlSession().update("log_update",dto);
 	}

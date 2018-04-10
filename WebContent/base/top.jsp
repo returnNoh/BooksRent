@@ -16,7 +16,7 @@
         <div class="container">
             <div class="navbar-header">
 
-                <a class="navbar-brand home" href="index.html">
+                <a class="navbar-brand home" href="main2.books">
                     <img src="/BooksRent/base/img/logo.png" alt="Minimal logo" class="hidden-xs hidden-sm">
                     <img src="/BooksRent/base/img/logo-small.png" alt="Minimal logo" class="visible-xs visible-sm"><span class="sr-only">Minimal - go to homepage</span>
                 </a>
@@ -54,7 +54,7 @@
                     </li>
                     <li class="active dropdown normal-dropdown"><a href="index.html" class="dropdown-toggle" data-toggle="dropdown">관리자전용<b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="book/register.books">책 목록 및 추가</a>
+                            <li><a href="book/register.books">책 추가</a>
                             </li>
                             <li><a href="index2.html">정보수정</a>
                             </li>

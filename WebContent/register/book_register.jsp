@@ -19,17 +19,17 @@
     <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700|Merriweather:400,400italic' rel='stylesheet' type='text/css'>
 
     <!-- Bootstrap and Font Awesome css -->
-    <link href="base/css/font-awesome.css" rel="stylesheet">
-    <link href="base/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../base/css/font-awesome.css" rel="stylesheet">
+    <link href="../base/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Theme stylesheet -->
-    <link href="base/css/style.default.css" rel="stylesheet" id="theme-stylesheet">
+    <link href="../base/css/style.default.css" rel="stylesheet" id="theme-stylesheet">
 
     <!-- Custom stylesheet - for your changes -->
-    <link href="base/css/custom.css" rel="stylesheet">
+    <link href="../base/css/custom.css" rel="stylesheet">
 
     <!-- Responsivity for older IE -->
-    <script src="base/js/respond.min.js"></script>
+    <script src="../base/js/respond.min.js"></script>
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="favicon.png">
@@ -56,18 +56,18 @@ _________________________________________________________ -->
 
                     <div class="box clearfix">
                         <h3>책 등록</h3>
-                        <form>
+                        <form enctype="multipart/form-data" method="post" action="register.books" >
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <label for="firstname">Firstname</label>
-                                        <input type="text" class="form-control" id="firstname">
+                                        <label for="firstname">책 번호</label>
+                                        <input type="text" class="form-control" name="book_num" id="firstname">
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <label for="lastname">Lastname</label>
-                                        <input type="text" class="form-control" id="lastname">
+                                        <label for="lastname">책 이름</label>
+                                        <input type="text" class="form-control" name="book_name"  id="lastname">
                                     </div>
                                 </div>
                             </div>
@@ -76,62 +76,25 @@ _________________________________________________________ -->
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <label for="company">Company</label>
-                                        <input type="text" class="form-control" id="company">
+                                        <label for="company">출판사</label>
+                                        <input type="text" class="form-control" name="book_company"  id="company">
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <label for="street">Street</label>
-                                        <input type="text" class="form-control" id="street">
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- /.row -->
-
-                            <div class="row">
-                                <div class="col-sm-6 col-md-3">
-                                    <div class="form-group">
-                                        <label for="city">Company</label>
-                                        <input type="text" class="form-control" id="city">
-                                    </div>
-                                </div>
-                                <div class="col-sm-6 col-md-3">
-                                    <div class="form-group">
-                                        <label for="zip">ZIP</label>
-                                        <input type="text" class="form-control" id="zip">
-                                    </div>
-                                </div>
-                                <div class="col-sm-6 col-md-3">
-                                    <div class="form-group">
-                                        <label for="state">State</label>
-                                        <select class="form-control" id="state"></select>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6 col-md-3">
-                                    <div class="form-group">
-                                        <label for="country">Country</label>
-                                        <select class="form-control" id="country"></select>
-                                    </div>
-                                </div>
-
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <label for="phone">Telephone</label>
-                                        <input type="text" class="form-control" id="phone">
+                                        <label for="street">태그정보</label>
+                                        <input type="text" class="form-control" name="book_tag"  id="street">
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <label for="email">Email</label>
-                                        <input type="text" class="form-control" id="email">
-                                    </div>
+                                        <label for="street">이미지 업로드</label>
+                                		<input type="file" name="upload">
+                                </div>
                                 </div>
                                 <div class="col-sm-12 text-center">
-                                    <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Save changes</button>
-
+                                    <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i>책 등록</button>
                                 </div>
-
                             </div>
 
                         </form>
@@ -157,10 +120,10 @@ _________________________________________________________ -->
 
     <!-- #### JAVASCRIPT FILES ### -->
 
-    <script src="base/js/jquery-1.11.0.min.js"></script>
-    <script src="base/js/bootstrap.min.js"></script>
-    <script src="base/js/jquery.cookie.js"></script>
-    <script src="base/js/front.js"></script>
+    <script src="../base/js/jquery-1.11.0.min.js"></script>
+    <script src="../base/js/bootstrap.min.js"></script>
+    <script src="../base/js/jquery.cookie.js"></script>
+    <script src="../base/js/front.js"></script>
 	<script>
 	function EmailCheck(){
 		var email = $('#email').val()
