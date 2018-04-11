@@ -18,6 +18,7 @@ DB설계 , 프론트엔드(부트스트랩,jquery) , 모델2 , 스프링 까지 
 - [책판매량 및 대출순위(데이터 활용)](WebContent/Mypage_p)
 - [책 추가(관리자)](WebContent/Admin)
 - [구글맵 api](WebContent/map.jsp)
+- [파일업로드](webContent/register/bookRegister.jsp)
 
 ###### DB 설계
 - [Exerd](BooksRent.exerd)
