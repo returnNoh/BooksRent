@@ -44,18 +44,17 @@ public class Log_InOutController {
 		
 		
 		// 로그인 정보 확인
-		int result = dao.Login(dto);
+		String result="";
+		result = dao.Login(dto);
 		
 
 		
-		if(result==1) { // 로그인정보가 있을경우
+		if(result!="") { // 로그인정보가 있을경우
 			//request.getSession().setAttribute("p_email", check.getP_email());
-			request.getSession().setAttribute("grade", result);
+			request.getSession().setAttribute("p_email", result);
 			System.out.println("성공이다!!!!!");
 			dao.Log_Update(dto);
-			
 			//로그인 성공시 성공유무를  데이터베이스에 추가해주기
-			
 		}else {
 			//ajax로 문자열만 리턴받을 방법은?
 			//

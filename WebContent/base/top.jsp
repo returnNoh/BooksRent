@@ -64,7 +64,7 @@
                     <li><a href="bookList.books">책 목록</a>
                     </li>
                     
-                    <li><a href="contact.html">신간</a>
+                    <li><a href="newbookList.books">신간</a>
                     </li>
                     <li><a href="contact.html">공지사항</a>
                     </li>
@@ -75,7 +75,7 @@
             <!--/.nav-collapse -->
 			<c:if test="${not empty p_email}">
             <div class="navbar-collapse collapse right" id="basket-overview">
-                <a href="basket.html" class="btn btn-primary navbar-btn"><i class="fa fa-shopping-cart"></i><span class="hidden-sm">소지한 책 <span class="hidden-md">보러가기</span></span></a>
+                <a href="mypage.books" class="btn btn-primary navbar-btn"><i class="fa fa-shopping-cart"></i><span class="hidden-sm">소지한 책 <span class="hidden-md">보러가기</span></span></a>
             </div>
             </c:if>
             <!--/.nav-collapse -->
@@ -99,8 +99,8 @@
             <div class="navbar-collapse collapse right">
                 <!-- <button type="button" class="btn navbar-btn btn-default" data-toggle="modal" data-target="#login-modal"> -->
                 <a class="btn navbar-btn btn-default" href="logout.books">
-                    <span class="sr-only">User logout</span>
-                    <i class="fa fa-users"></i>
+                    <span>logout</span>
+                    <!-- <i class="fa fa-users"></i> -->
                     </a>
                 <!-- </button> -->
             </div>

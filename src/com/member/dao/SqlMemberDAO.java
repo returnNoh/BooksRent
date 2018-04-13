@@ -8,7 +8,7 @@ import org.springframework.dao.DataAccessException;
 public class SqlMemberDAO extends SqlSessionDaoSupport implements MemberDao {
 
 	@Override
-	public int Login(MemberDTO dto) throws DataAccessException {
+	public String Login(MemberDTO dto) throws DataAccessException {
 		// TODO Auto-generated method stub
 		
 		return getSqlSession().selectOne("login", dto);

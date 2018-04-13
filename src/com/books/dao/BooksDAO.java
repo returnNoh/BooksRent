@@ -14,4 +14,6 @@ public interface BooksDao {
 	
 	public void book_regist(BooksDTO dto);
 	
+	public List<BooksDTO> newBookList(int next);
+	
 }

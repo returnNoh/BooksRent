@@ -31,6 +31,11 @@ public class SqlBooksDAO extends SqlSessionDaoSupport implements BooksDao {
 		// TODO Auto-generated method stub
 		getSqlSession().insert("book_regist", dto);
 	}
+	@Override
+	public List<BooksDTO> newBookList(int next) {
+		// TODO Auto-generated method stub
+		return getSqlSession().selectList("newBookList",next);
+	}
 
 	
 

@@ -49,6 +49,110 @@ _________________________________________________________ -->
     
 
     <jsp:include page="../base/top.jsp"></jsp:include>
+    
+    
+    <div class="modal fade" id="product-quick-view-modal" tabindex="-1" role="dialog" aria-hidden="false">
+                                <div class="modal-dialog modal-lg">
+                                    <div class="modal-content">
+                                        <div class="modal-body">
+
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+
+                                            <div class="row quick-view product-main">
+                                                <div class="col-sm-6">
+                                                    <div class="quick-view-main-image">
+                                                        <img src="img/detailbig1.jpg" alt="" class="img-responsive">
+                                                    </div>
+
+                                                    <div class="ribbon ribbon-quick-view sale">
+                                                        <div class="theribbon">SALE</div>
+                                                        <div class="ribbon-background"></div>
+                                                    </div>
+                                                    <!-- /.ribbon -->
+
+                                                    <div class="ribbon ribbon-quick-view new">
+                                                        <div class="theribbon">NEW</div>
+                                                        <div class="ribbon-background"></div>
+                                                    </div>
+                                                    <!-- /.ribbon -->
+
+                                                    <div class="row thumbs">
+                                                        <div class="col-xs-4">
+                                                            <a href="img/detailbig1.jpg" class="thumb">
+                                                                <img src="img/detailsquare.jpg" alt="" class="img-responsive">
+                                                            </a>
+                                                        </div>
+                                                        <div class="col-xs-4">
+                                                            <a href="img/detailbig2.jpg" class="thumb">
+                                                                <img src="img/detailsquare2.jpg" alt="" class="img-responsive">
+                                                            </a>
+                                                        </div>
+                                                        <div class="col-xs-4">
+                                                            <a href="img/detailbig3.jpg" class="thumb">
+                                                                <img src="img/detailsquare3.jpg" alt="" class="img-responsive">
+                                                            </a>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                                <div class="col-sm-6">
+
+                                                    <h2>White Blouse Armani</h2>
+
+                                                    <p class="text-muted text-small text-center">White lace top, woven, has a round neck, short sleeves, has knitted lining attached</p>
+
+                                                    <div class="box">
+
+                                                        <form>
+                                                            <div class="sizes">
+
+                                                                <h3>Available sizes</h3>
+
+                                                                <label for="size_s">
+                                                                    <a href="#">S</a>
+                                                                    <input type="radio" id="size_s" name="size" value="s" class="size-input">
+                                                                </label>
+                                                                <label for="size_m">
+                                                                    <a href="#">M</a>
+                                                                    <input type="radio" id="size_m" name="size" value="m" class="size-input">
+                                                                </label>
+                                                                <label for="size_l">
+                                                                    <a href="#">L</a>
+                                                                    <input type="radio" id="size_l" name="size" value="l" class="size-input">
+                                                                </label>
+
+                                                            </div>
+
+                                                            <p class="price">$124.00</p>
+
+                                                            <p class="text-center">
+                                                                <button type="submit" class="btn btn-primary"><i class="fa fa-shopping-cart"></i> Add to cart</button>
+                                                                <button type="submit" class="btn btn-default" data-toggle="tooltip" data-placement="top" title="Add to wishlist"><i class="fa fa-heart-o"></i>
+                                                                </button>
+                                                            </p>
+
+
+                                                        </form>
+                                                    </div>
+                                                    <!-- /.box -->
+
+                                                    <div class="quick-view-social">
+                                                        <h4>Show it to your friends</h4>
+                                                        <p>
+                                                            <a href="#" class="external facebook" data-animate-hover="pulse"><i class="fa fa-facebook"></i></a>
+                                                            <a href="#" class="external gplus" data-animate-hover="pulse"><i class="fa fa-google-plus"></i></a>
+                                                            <a href="#" class="external twitter" data-animate-hover="pulse"><i class="fa fa-twitter"></i></a>
+                                                            <a href="#" class="email" data-animate-hover="pulse"><i class="fa fa-envelope"></i></a>
+                                                        </p>
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                              </div>
 
 
     <div id="all">
@@ -88,12 +192,19 @@ _________________________________________________________ -->
                         
 
                         <div class="row products">
+                        
+  
 <!-- ========여기부터 반복 시작=========== -->
+					<c:if test="${count==0}">
+					<p class="price">게시글이 부족하당</p>
+						</c:if>
+	
+						<c:forEach var="menu" items="${list}">
                             <div class="col-md-4 col-sm-6">
                                 <div class="product">
                                     <div class="image">
                                         <a href="detail.html">
-                                            <img src="base/img/product1.jpg" alt="" class="base/img-responsive image1">
+                                            <img src="book_image/${menu.book_filename}" alt="" class="img-responsive image1" style="width:100%;height:250px;">
                                         </a>
                                         <div class="quick-view-button">
                                             <a href="#" data-toggle="modal" data-target="#product-quick-view-modal" class="btn btn-default btn-sm">Quick view</a>
@@ -101,13 +212,14 @@ _________________________________________________________ -->
                                     </div>
                                     <!-- /.image -->
                                     <div class="text">
-                                        <h3><a href="#" data-toggle="modal" data-target="#product-quick-view-modal">Fur coat with very but very very long name</a></h3> 
-                                        <p class="price">$143.00</p>
+                                        <h3><a href="#" data-toggle="modal" data-target="#product-quick-view-modal">${menu.book_name}</a></h3> 
+                                        <p class="price">${menu.book_company}</p>
                                     </div>
                                     <!-- /.text -->
                                 </div>
                                 <!-- /.product -->
                             </div>
+                            </c:forEach>
 <!-- =====여기까지만 반복해서 사용하기=========== -->
                          
 
@@ -120,8 +232,10 @@ _________________________________________________________ -->
 
 
                         <div class="pages">
+                        
+                        ${pagingHtml}
 
-                            <ul class="pagination">
+                            <!-- <ul class="pagination">
                                 <li><a href="#">&laquo;</a>
                                 </li>
                                 <li class="active"><a href="#">1</a>
@@ -137,12 +251,12 @@ _________________________________________________________ -->
                                 <li><a href="#">&raquo;</a>
                                 </li>
                             </ul>
-                        </div>
+                        </div> -->
 
 
                     </div>
                     <!-- /.col-md-9 -->
-
+					</div>
                     <!-- *** LEFT COLUMN END *** -->
 
                     <!-- *** RIGHT COLUMN ***

@@ -8,7 +8,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <!-- 1. 검색어에 따른 책 분류 리스트 개수 불러오기 -->
 
 <select id="selectBookCount" parameterType="map" resultType="int">
- 		select count(*) from BooksRent
+ 		select count(*) from books_info
  		<where>
  					<if test="keyWord!=null and keyField=='name'">
  						book_name like CONCAT('%',#keyWord#,'%')
@@ -31,6 +31,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
  					</if>
  					</where>
+ 					
  	</select>
  	
  	<!-- 2. 검색어에 따른 책 분류 리스트 불러오기 -->
@@ -65,7 +66,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  	<!-- MySql -->
  	<select id="selectBookList" parameterType="map" resultType="books_info">
  		select *
- 		from BooksRent
+ 		from books_info
  					<where>
  					<if test="keyWord!=null and keyField=='name'">
  						book_name like CONCAT('%',#keyWord#,'%')
@@ -86,7 +87,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  						book_num like CONCAT('%',#keyWord#,'%')
  					</if>
  					</where>
- 					order by time_book_insert desc
+ 					order by time_book_insert desc limit #{start},#{end}
  	</select>
 
 <!-- 3. 책 상세보기 .. 하지말까.. -->
@@ -99,6 +100,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	#{book_num},#{book_name},#{book_company},
 	#{book_tag},now(),#{book_filename,jdbcType=VARCHAR})
 </insert>
+
+<!-- 5.신간 책 리스트 -->
+
+<!-- 6.신간 책 리스트 로딩시 추가 -->
+<select id="newBookList" parameterType="int" resultType="books_info">
+select * from books_info order by time_book_insert desc limit #{value},3
+</select>
 
  
 </mapper>

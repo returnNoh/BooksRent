@@ -84,6 +84,7 @@ value="org.springframework.web.servlet.view.JstlView"></property>
  <bean class="action.Log_InOutController"/>
  <bean class="action.BookRegistController"/>
  <bean class="action.BookListController"/>
+ <bean class="action.MyPageController"/>
  
  <bean id="emailcheck" class="mail.Email"/>
  

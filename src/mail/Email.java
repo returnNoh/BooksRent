@@ -15,18 +15,18 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.web.servlet.view.AbstractView;
 
-public class Email  extends AbstractView {
+public class Email {
 		
-	public Email() {
-		this.setContentType("application/json"); // 뷰의 컨텐츠타입을 바꿈
-	}
+//	public Email() {
+//		this.setContentType("application/json"); // 뷰의 컨텐츠타입을 바꿈
+//	}
 	
-	protected void renderMergedOutputModel(Map<String, Object> model, HttpServletRequest request, HttpServletResponse response)
+	public String renderMergedOutputModel(String email)
 			throws Exception {
 		
 		//String from = request.getParameter("from");
 		String from = "todaylunchtest@gmail.com"; // 보내는이 // 고정임
-		String to = (String) model.get("email");//request.getParameter("email"); // 받는사람 // 전달받아야 할 값 
+		String to = email;//request.getParameter("email"); // 받는사람 // 전달받아야 할 값 
 		//String subject = request.getParameter("subject");
 		String subject = "TodayLunch 회원가입 인증 이메일입니다"; //제목
 		//String content = request.getParameter("content");
@@ -87,15 +87,15 @@ public class Email  extends AbstractView {
 		    msg.setContent(content, "text/html;charset=UTF-8"); // 내용과 인코딩
 		     
 		    Transport.send(msg); // 전송
-		    response.setContentType(this.getContentType());
+//		    response.setContentType(this.getContentType());
 		    result="성공";
 		} catch(Exception e){
 		    e.printStackTrace();
 		    
 		    // 오류 발생시 뒤로 돌아가도록
-		    return;
 		}
 		System.out.println(result);
+		return content;
 	}
 
 	

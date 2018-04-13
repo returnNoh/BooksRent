@@ -161,12 +161,15 @@ _________________________________________________________ -->
 	<script>
 	function EmailCheck(){
 		var email = $('#email').val()
-		$.ajax({url:"emailcheck.books",item:{"email":email},success:function(data){
+		$.ajax({url:"emailcheck.books",date:{"email":email},success:function(data){
 			$('#check_num').remove()
 			$('#check').after('<input type="text" id="check_num" name="check_num" onclick="check_num">'+
 					'<input type="button" value="번호인증" onclick="function(){var check_num=$("#check_num").val()'+
 				'if(check_num=='+data+'){alert("인증완료")}else{alert("번호다름")}}">')
-		}})
+		},error:function(){
+			alert('오류오류')
+		}
+		})
 	}
 	
 	</script>

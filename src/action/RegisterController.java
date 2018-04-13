@@ -1,8 +1,9 @@
 package action;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -10,6 +11,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.member.dao.MemberDTO;
 import com.member.dao.MemberDao;
+
+import mail.Email;
 
 @Controller
 public class RegisterController {
@@ -40,10 +43,18 @@ public class RegisterController {
 	}
 	
 	@RequestMapping("emailcheck.books")
-	public ModelAndView Submit(@RequestParam("email") String email) {
+	public String Submit(HttpServletRequest request) {
+		String check_num="오류남";
+		try {
+			check_num=new Email().renderMergedOutputModel(request.getParameter("email"));
+		}catch(Exception  e) {
+			e.printStackTrace();
+		}
 		
 		
-		return new ModelAndView("emailcheck","email",email);
+		
+		
+		return check_num;
 	}
 	
 

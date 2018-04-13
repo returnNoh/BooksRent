@@ -87,6 +87,6 @@ public class BookRegistController {
 		}
 		
 		
-		return "redirect:book/register.books";
+		return "redirect:/book/register.books";
 	}
 }

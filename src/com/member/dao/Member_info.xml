@@ -5,9 +5,19 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="member">
  
- 	<select id="login" parameterType="member_info" resultType="int">
- 		select grade from member_login where p_email=#{p_email} and p_passwd=#{p_passwd}
+ 	<select id="login" parameterType="member_info" resultType="string">
+ 		select p_email from member_login where p_email=#{p_email} and p_passwd=#{p_passwd}
  	</select>
+ 	
+ 	
+ 	<!-- 
+ 	SELECT authors.au_lname, authors.state, publishers.*
+
+FROM publishers INNER JOIN authors
+
+ON publishers.city = authors.city
+
+ 	 -->
  	
  	<select id="info" parameterType="String" resultType="member_info">
  		select * from member_info where p_email=#{p_email}
