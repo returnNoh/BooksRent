@@ -46,17 +46,17 @@
                 <ul class="nav navbar-nav navbar-left">
                     <li class="active dropdown normal-dropdown"><a href="index.html" class="dropdown-toggle" data-toggle="dropdown">회원전용<b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="index.html">마이페이지</a>
+                            <li><a href="mypage.books">마이페이지</a>
                             </li>
-                            <li><a href="index2.html">정보수정</a>
+                            <li><a href="index2.html">회원수정</a>
+                            </li>
+                            <li><a href="index2.html">회원탈퇴</a>
                             </li>
                         </ul>
                     </li>
                     <li class="active dropdown normal-dropdown"><a href="index.html" class="dropdown-toggle" data-toggle="dropdown">관리자전용<b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li><a href="book/register.books">책 추가</a>
-                            </li>
-                            <li><a href="index2.html">정보수정</a>
                             </li>
                         </ul>
                     </li>

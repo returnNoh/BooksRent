@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.board.util.PagingUtil;
@@ -59,6 +60,30 @@ public class BookListController {
 		return mav;
 	}
 	
+	
+	@RequestMapping(value="bookListAPI.books",method=RequestMethod.GET)
+	public ModelAndView bookListAPI(
+			@RequestParam(value="pageNum",defaultValue="1") int currentPage,
+			@RequestParam(value="keyField",defaultValue="") String keyField,
+			@RequestParam(value="keyWord",defaultValue="") String keyWord) {
+		ModelAndView mav = new ModelAndView("jsonView");
+		
+		Map<String,Object> map = new HashMap<String,Object>();
+		map.put("keyField", keyField);
+		map.put("keyWord", keyWord);
+		int count = dao.bookListCount(map);
+		PagingUtil page = new PagingUtil(currentPage,count,3,3,"bookList.books");
+		map.put("start", page.getStartCount());
+		map.put("end", page.getEndCount());
+		
+		if(count>0) {
+			mav.addObject("booklist", dao.bookList(map));
+			}
+//			mav.addObject("count",count);
+//			mav.addObject("pagingHtml", page.getPagingHtml());
+		
+		return mav;
+	}
 	
 	
 }
