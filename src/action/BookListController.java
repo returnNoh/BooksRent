@@ -1,6 +1,7 @@
 package action;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -10,10 +11,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.board.util.PagingUtil;
+import com.books.dao.BooksDTO;
 import com.books.dao.BooksDao;
 
 @Controller
@@ -45,7 +46,7 @@ public class BookListController {
 		return mav;
 	}
 	
-	@RequestMapping("newbookList.books")
+	@RequestMapping(value="newbookList.books",method=RequestMethod.GET)
 	public ModelAndView newbookList(HttpServletRequest request) {
 		ModelAndView mav = new ModelAndView("books/newbooksList");
 		int next = 0;
@@ -56,6 +57,24 @@ public class BookListController {
 			
 		
 			mav.addObject("list", dao.newBookList(next));	
+		
+		return mav;
+	}
+	
+	@RequestMapping(value="newbookList.books",method=RequestMethod.POST)
+	public ModelAndView newbookList2(HttpServletRequest request) {
+		ModelAndView mav = new ModelAndView("jsonView");
+		int next = 0;
+			if(request.getParameter("index")!=null) {
+				next = Integer.parseInt(request.getParameter("index"));
+				next = next*3;
+			}
+			
+		List<BooksDTO> list = dao.newBookList(next);
+		if(list.isEmpty()) {
+			return null;
+		}
+			mav.addObject("list", list);
 		
 		return mav;
 	}

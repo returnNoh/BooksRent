@@ -108,5 +108,25 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 select * from books_info order by time_book_insert desc limit #{value},3
 </select>
 
+
+
+<!-- 7. 마이페이지에서 보는 현 대여한 책 정보  -->
+<select id="rentBookList" parameterType="String" resultType="books_rent">
+SELECT * 
+FROM books_rent 
+where p_email=#{value} 
+order by time_rent_end desc 
+
+</select>
+<!-- limit #{PageNum},3 -->
+
+<!-- 8. 마이페이지에서 보는 현 구매한 책 정보  -->
+<select id="myBookList" parameterType="String" resultType="books_sell">
+SELECT * 
+FROM books_sell
+where p_email=#{value} 
+order by time_sell desc 
+</select>
+<!-- limit #{PageNum},3 -->
  
 </mapper>

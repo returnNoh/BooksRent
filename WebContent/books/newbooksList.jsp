@@ -80,19 +80,12 @@
 		    <div class="container flex-container">
 			<c:forEach var="list" items="${list}" >
                 <div class="col-sm-offset-1 col-sm-10" id="blog-listing">
-					
-                   <!--  <div class="post">
-                       <div class="row">
-                        -->
                         <div class="image">
                             <a href="post.html">
                                 <img src="book_image/${list.book_filename}" class="img-responsive" alt="Example blog post alt">
                             </a>
                         </div>
-
                         <p class="intro">${list.book_name}[${list.book_company}]</p>
-                    <!-- </div>
-                </div> -->
                </div>
    </c:forEach>
    </div>
@@ -124,34 +117,29 @@ _________________________________________________________ -->
     <script src="base/js/bootstrap.min.js"></script>
     <script src="base/js/jquery.cookie.js"></script>
     <script src="base/js/front.js"></script>
-    <script>
+     <script>
 		$(function() {
 			var pageRow = 0;
 			var stop = 0;
-
+			var loading = false;
 			$(window)
 					.scroll(
 							function() {
 								if (stop == 0) {
 									var $this = $(this);
-									var $results = $(".flex-container");
-									if (!$results.data("loading")) {
-										var pageDown = $(".check").height()+$('.navbar').height()
 										
-										/* 
-												+ $(".banner").height()
-												+ $(".inner-page").height() */
-										//alert($results.html()) ;
+										var pageDown = $(".check").height()+$('.navbar').height()+ $(".banner").height()+ $(".inner-page").height(); 
+										
 										if ($(window).scrollTop()
-												+ $(window).height() > pageDown) {
+												+ $(window).height() > pageDown && loading==false) {
 											//alert(pageDown) ;
-											
+											loading==true;
 											
 											pageRow++;
 											loadMore(pageRow);
 											//alert('stop=' + stop)
 										}
-									}
+										
 								}
 							});
 
@@ -164,45 +152,23 @@ _________________________________________________________ -->
 							data : {
 								index : i
 							},
-							beforeSend : function(xhr) {
-								$(".flex-container")
-										.after(
-												$(
-														"<div class='loading' style='width: 100%'  align='center'><img src='base/img/icon_loading.gif'></div>")
-														.fadeIn('slow')).data(
-												"loading", true);
-							},
 							success : function(data) {
-								alert(data)
-								var $results = $(".flex-container");
-								$(".loading").fadeOut('fast', function() {
-									$(this).remove();
-								});
-								var $data = $(data);
-								var $f_data = $data.find(".flex-container");
-								//alert("h4" + $f_data.find("h4").text());
-								var restList = $f_data.find("h4").text();
-								//alert(restList)
-
-								$data.hide();
-								if (restList != "") {
-									$results.append($f_data.html());
-								} else {
-									stopfun();
-								}
-								$data.fadeIn();
-								$results.removeData("loading");
-							},error : function(){
-								alert("오류")
+						
+								$.each(data.list,function(){
+									var notice = '<div class="col-sm-offset-1 col-sm-10" id="blog-listing"><div class="image"><a href="post.html">';
+									notice+='<img src="book_image/'+this.book_filename+'" class="img-responsive" alt="Example blog post alt">';
+									notice+='</a></div><p class="intro">';
+									notice+='<p class="intro">'+this.book_name+'['+this.book_company+']</p></div>';
+									$('.flex-container').append(notice);
+								})
+								loading=false;
 							}
 						});
 			}
-			function stopfun() {
-				stop = 1;
-			}
+			
 
 		})
-	</script>
+	</script> 
 
     
 

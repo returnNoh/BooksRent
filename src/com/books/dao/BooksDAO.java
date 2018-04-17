@@ -16,4 +16,8 @@ public interface BooksDao {
 	
 	public List<BooksDTO> newBookList(int next);
 	
+	public List<BooksRentDTO> rentBookList(String p_email);
+	
+	public List<BooksRentDTO> myBookList(String p_email);
+	
 }
