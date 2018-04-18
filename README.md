@@ -16,8 +16,8 @@ DB설계 , 프론트엔드(부트스트랩,jquery) , 모델2 , 스프링 까지 
 - [로그인 (ajax)](https://github.com/returnNoh/BooksRent/tree/master/WebContent/base/top.jsp)
 - [로그인 (세션저장) + 로그 저장(데이터 수집)](https://github.com/returnNoh/BooksRent/tree/master/src/action/Log_InOutController.java)
 - [책 추가 - (이미지)파일업로드](https://github.com/returnNoh/BooksRent/tree/master/WebContent/register/bookRegister.jsp)
-- [서버에 저장된 이미지를 포함하여 글을 보여주는 게시판](WebContent/booksBooksList.jsp)
-- [DB 데이터 api를 json으로 제공](https://github.com/returnNoh/BooksRent/tree/master/src/action/BookListController.jsp)
+- [서버에 저장된 이미지를 포함하여 글을 보여주는 게시판](https://github.com/returnNoh/BooksRent/tree/master/WebContent/booksBooksList.jsp)
+- [DB 데이터 api를 json으로 제공](https://github.com/returnNoh/BooksRent/blob/master/src/action/BookListController.java)
 - [프론트:무한스크롤 ajax](https://github.com/returnNoh/BooksRent/tree/master/WebContent/books/newbooksList.jsp)
 
 - ~~[구글맵 api](WebContent/map.jsp)~~  // 최신버전에 없음
