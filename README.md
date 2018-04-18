@@ -15,12 +15,12 @@ DB설계 , 프론트엔드(부트스트랩,jquery) , 모델2 , 스프링 까지 
 
 - [로그인 (ajax)](webContent/base/top.jsp)
 - [로그인 (세션저장) + 로그 저장(데이터 수집)](src/action/Log_InOutController.java)
-- [구글맵 api](WebContent/map.jsp)  // 최신버전에 없음
 - [책 추가 - (이미지)파일업로드](webContent/register/bookRegister.jsp)
+- [서버에 저장된 이미지를 포함하여 글을 보여주는 게시판](webContent/booksBooksList.jsp)
 - [DB 데이터 api를 json으로 제공](src/action/BookListController.jsp)
 - [프론트:무한스크롤 ajax](webContent/books/newbooksList.jsp)
 
-
+- ~~[구글맵 api](WebContent/map.jsp)~~  // 최신버전에 없음
 - ~~[도서 대출 로직](WebContent/Register)~~ 모델2로만 작성
 - ~~[책판매량 및 대출순위(데이터 활용)](WebContent/Mypage_p)~~
 
