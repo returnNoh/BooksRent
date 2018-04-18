@@ -21,8 +21,8 @@ DB설계 , 프론트엔드(부트스트랩,jquery) , 모델2 , 스프링 까지 
 - [프론트:무한스크롤 ajax](https://github.com/returnNoh/BooksRent/tree/master/WebContent/books/newbooksList.jsp)
 
 - ~~[구글맵 api](WebContent/map.jsp)~~  // 최신버전에 없음
-- ~~[도서 대출 로직](WebContent/Register)~~ 모델2로만 작성
-- ~~[책판매량 및 대출순위(데이터 활용)](WebContent/Mypage_p)~~
+- ~~[도서 대출 로직](WebContent/Register)~~ // 모델2로만 작성
+- ~~[책판매량 및 대출순위(데이터 활용)](WebContent/Mypage_p)~~ // 신간만 있고 아직 미구현
 
 ###### DB 설계
 - [Exerd](BooksRent.exerd)
