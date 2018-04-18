@@ -12,7 +12,7 @@ DB설계 , 프론트엔드(부트스트랩,jquery) , 모델2 , 스프링 까지 
 
 
 ###### 기능구현 
-
+- [회원가입](https://github.com/returnNoh/BooksRent/tree/master/WebContent/register/register.jsp)
 - [로그인 (ajax)](https://github.com/returnNoh/BooksRent/tree/master/WebContent/base/top.jsp)
 - [로그인 (세션저장) + 로그 저장(데이터 수집)](https://github.com/returnNoh/BooksRent/tree/master/src/action/Log_InOutController.java)
 - [책 추가 - (이미지)파일업로드](https://github.com/returnNoh/BooksRent/tree/master/WebContent/register/BookRegisterController.java)
