@@ -13,9 +13,9 @@ DB설계 , 프론트엔드(부트스트랩,jquery) , 모델2 , 스프링 까지 
 
 ###### 기능구현 
 
-- [로그인(세션관리)](WebContent/Login)
-- [로그인 로그 저장(데이터 수집)](WebContent/Mypage_p)
-- [구글맵 api](WebContent/map.jsp)
+- [로그인 (ajax)](webContent/base/top.jsp)
+- [로그인 (세션저장) + 로그 저장(데이터 수집)](src/action/Log_InOutController.java)
+- [구글맵 api](WebContent/map.jsp)  // 최신버전에 없음
 - [책 추가 - (이미지)파일업로드](webContent/register/bookRegister.jsp)
 - [DB 데이터 api를 json으로 제공](src/action/BookListController.jsp)
 - [프론트:무한스크롤 ajax](webContent/books/newbooksList.jsp)
