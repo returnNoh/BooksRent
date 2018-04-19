@@ -26,7 +26,8 @@ DB설계 , 프론트엔드(부트스트랩,jquery) , 모델2 , 스프링 까지 
 
 ###### DB 설계
 - [Exerd](BooksRent.exerd)
-
+###### 소개용 프레젠테이션(프레지)
+- [개인프로젝트 BooksRent 기능소개](https://prezi.com/view/Mri7Cyf39N5Zjk7mQ6yy/)
 
 
 
