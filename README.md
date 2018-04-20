@@ -11,7 +11,7 @@ DB설계 , 프론트엔드(부트스트랩,jquery) , 모델2 , 스프링 까지 
 스프링을 아직 완전히 습득하지 못하여 모델 2로 기능면만 구현하였고 스프링 습득 후 다시 건드릴 예정입니다.
 
 
-###### 기능구현 
+###### 기능구현
 - [회원가입](https://github.com/returnNoh/BooksRent/tree/master/WebContent/register/register.jsp)
 - [로그인 (ajax)](https://github.com/returnNoh/BooksRent/tree/master/WebContent/base/top.jsp)
 - [로그인 (세션저장) + 로그 저장(데이터 수집)](https://github.com/returnNoh/BooksRent/tree/master/src/action/Log_InOutController.java)
