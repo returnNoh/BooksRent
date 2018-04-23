@@ -51,6 +51,9 @@ _________________________________________________________ -->
     <jsp:include page="../base/top.jsp"></jsp:include>
     
     
+    
+    
+    
     <div class="modal fade" id="product-quick-view-modal" tabindex="-1" role="dialog" aria-hidden="false">
                                 <div class="modal-dialog modal-lg">
                                     <div class="modal-content">
@@ -60,90 +63,53 @@ _________________________________________________________ -->
 
                                             <div class="row quick-view product-main">
                                                 <div class="col-sm-6">
-                                                    <div class="quick-view-main-image">
-                                                        <img src="img/detailbig1.jpg" alt="" class="img-responsive">
+                                                    <div class="quick-view-main-image" id="modal-img">
+                                                        <img src="base/img/detailbig1.jpg" alt="" class="img-responsive">
                                                     </div>
 
-                                                    <div class="ribbon ribbon-quick-view sale">
-                                                        <div class="theribbon">SALE</div>
-                                                        <div class="ribbon-background"></div>
-                                                    </div>
-                                                    <!-- /.ribbon -->
 
                                                     <div class="ribbon ribbon-quick-view new">
                                                         <div class="theribbon">NEW</div>
                                                         <div class="ribbon-background"></div>
                                                     </div>
-                                                    <!-- /.ribbon -->
-
-                                                    <div class="row thumbs">
-                                                        <div class="col-xs-4">
-                                                            <a href="img/detailbig1.jpg" class="thumb">
-                                                                <img src="img/detailsquare.jpg" alt="" class="img-responsive">
-                                                            </a>
-                                                        </div>
-                                                        <div class="col-xs-4">
-                                                            <a href="img/detailbig2.jpg" class="thumb">
-                                                                <img src="img/detailsquare2.jpg" alt="" class="img-responsive">
-                                                            </a>
-                                                        </div>
-                                                        <div class="col-xs-4">
-                                                            <a href="img/detailbig3.jpg" class="thumb">
-                                                                <img src="img/detailsquare3.jpg" alt="" class="img-responsive">
-                                                            </a>
-                                                        </div>
-                                                    </div>
-
+                                                  
                                                 </div>
                                                 <div class="col-sm-6">
 
-                                                    <h2>White Blouse Armani</h2>
+                                                    <h2 id="modal-book-name">책제목넣기</h2>
 
-                                                    <p class="text-muted text-small text-center">White lace top, woven, has a round neck, short sleeves, has knitted lining attached</p>
+                                                    <p class="text-muted text-small text-center" id="modal-book-company">소개문같은거 넣고싶은데 DB설계에 읎다~</p>
 
                                                     <div class="box">
 
                                                         <form>
                                                             <div class="sizes">
 
-                                                                <h3>Available sizes</h3>
+                                                                <h3 id="modal-book-regist">출고일이라도 넣고,,</h3>
 
-                                                                <label for="size_s">
-                                                                    <a href="#">S</a>
-                                                                    <input type="radio" id="size_s" name="size" value="s" class="size-input">
-                                                                </label>
-                                                                <label for="size_m">
-                                                                    <a href="#">M</a>
-                                                                    <input type="radio" id="size_m" name="size" value="m" class="size-input">
-                                                                </label>
-                                                                <label for="size_l">
-                                                                    <a href="#">L</a>
-                                                                    <input type="radio" id="size_l" name="size" value="l" class="size-input">
-                                                                </label>
 
                                                             </div>
 
-                                                            <p class="price">$124.00</p>
+                                                            <p class="price">가격도 DB에 안넣었돠 만원씩하자</p>
 
                                                             <p class="text-center">
-                                                                <button type="submit" class="btn btn-primary"><i class="fa fa-shopping-cart"></i> Add to cart</button>
-                                                                <button type="submit" class="btn btn-default" data-toggle="tooltip" data-placement="top" title="Add to wishlist"><i class="fa fa-heart-o"></i>
-                                                                </button>
+                                                                <button type="button" class="btn btn-primary"><i class="fa fa-shopping-cart"></i> 구매하기</button>
                                                             </p>
-
-
                                                         </form>
                                                     </div>
                                                     <!-- /.box -->
 
                                                     <div class="quick-view-social">
-                                                        <h4>Show it to your friends</h4>
-                                                        <p>
-                                                            <a href="#" class="external facebook" data-animate-hover="pulse"><i class="fa fa-facebook"></i></a>
-                                                            <a href="#" class="external gplus" data-animate-hover="pulse"><i class="fa fa-google-plus"></i></a>
-                                                            <a href="#" class="external twitter" data-animate-hover="pulse"><i class="fa fa-twitter"></i></a>
-                                                            <a href="#" class="email" data-animate-hover="pulse"><i class="fa fa-envelope"></i></a>
-                                                        </p>
+                                                        <h4>저렴하게 빌려서 보기! </h4>
+                                                        <select id="rent" onchange="price_result()">
+                                                        <option value="1000">7일</option>
+                                                        <option value="2000">30일</option>
+                                                        <option value="3500">90일</option>
+                                                        <option value="5000">365일</option>
+                                                        </select>
+                                                			
+                                                       <p id="result_price"></p><button class="btn btn-primary">빌리기!</button>
+                                                       
                                                     </div>
 
                                                 </div>
@@ -207,7 +173,7 @@ _________________________________________________________ -->
                                             <img src="book_image/${menu.book_filename}" alt="" class="img-responsive image1" style="width:100%;height:250px;">
                                         </a>
                                         <div class="quick-view-button">
-                                            <a href="#" data-toggle="modal" data-target="#product-quick-view-modal" class="btn btn-default btn-sm">Quick view</a>
+                                            <a href="#" data-toggle="modal" data-target="#product-quick-view-modal" class="btn btn-default btn-sm" onclick="detail(${menu.book_num})">Quick view</a>
                                         </div>
                                     </div>
                                     <!-- /.image -->
@@ -438,6 +404,98 @@ _________________________________________________________ -->
     <script src="base/js/bootstrap.min.js"></script>
     <script src="base/js/jquery.cookie.js"></script>
     <script src="base/js/front.js"></script>
+    
+    <script>
+   	function price_result(){
+   		var rent = $('#rent option:selected').val();
+   		/* var price = "";
+   		if(rent=="7"){price="1000"}
+   		else if(rent=="30"){price="2000"}
+   		else if(rent=="90"){price="3500"}
+   		else {price="5000"} */
+   		
+   		
+   		$('#result_price').html(rent+"원입니다")
+   	}
+    
+  	function detail(number){
+  		
+		$.ajax({
+			url : "bookDetail.books",
+			data:{'number':number},
+			type:'post',
+			success : function(data) {
+				
+				
+				$('#modal-img').html('<img style="max-height: 700px" src="book_image/'+data.detail.book_filename+'" alt="" class="img-responsive">')
+				$('#modal-book-name').html(data.detail.book_name);
+				$('#modal-book-regist').html(data.detail.time_book_insert);
+				$('#modal-book-company').html(data.detail.book_company);
+				
+				//book_num , book_company , time_book_insert
+				
+				
+				
+			}
+		})
+	
+  	}
+  	
+  	/* 
+  	
+  	<div class="row quick-view product-main">
+                                                <div class="col-sm-6">
+                                                    <div class="quick-view-main-image">
+                                                        <img src="base/img/detailbig1.jpg" alt="" class="img-responsive">
+                                                    </div>
+
+
+                                                    <div class="ribbon ribbon-quick-view new">
+                                                        <div class="theribbon">NEW</div>
+                                                        <div class="ribbon-background"></div>
+                                                    </div>
+                                                  
+                                                </div>
+                                                <div class="col-sm-6">
+
+                                                    <h2 id="modal-book-name">책제목넣기</h2>
+
+                                                    <p class="text-muted text-small text-center" id="modal-book-company">소개문같은거 넣고싶은데 DB설계에 읎다~</p>
+
+                                                    <div class="box">
+
+                                                        <form>
+                                                            <div class="sizes">
+
+                                                                <h3 id="modal-book-regist">출고일이라도 넣고,,</h3>
+
+
+                                                            </div>
+
+                                                            <p class="price">가격도 DB에 안넣었돠</p>
+
+                                                            <p class="text-center">
+                                                                <button type="submit" class="btn btn-primary"><i class="fa fa-shopping-cart"></i> 구매하기</button>
+                                                            </p>
+                                                        </form>
+                                                    </div>
+                                                    <!-- /.box -->
+
+                                                    <div class="quick-view-social">
+                                                        <h4>저렴하게 빌려서 보기!</h4>
+                                                
+                                                       <p>여기에 선택지 넣어주고,,</p>
+                                                       
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+  	
+  	
+  	*/
+    
+    </script>
 
     
 

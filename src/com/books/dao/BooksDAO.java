@@ -10,7 +10,7 @@ public interface BooksDao {
 	
 	public int bookListCount(Map<String, Object> map);
 	
-	public BooksDTO detail();
+	public BooksDTO detail(int num);
 	
 	public void book_regist(BooksDTO dto);
 	

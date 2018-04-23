@@ -104,5 +104,24 @@ public class BookListController {
 		return mav;
 	}
 	
+	@RequestMapping(value="bookDetail.books",method=RequestMethod.POST)
+	public ModelAndView bookDetail(HttpServletRequest request,@RequestParam("number") int num) {
+		ModelAndView mav = new ModelAndView("jsonView");
+		
+			
+		BooksDTO detail = null;
+		detail=dao.detail(num);
+		
+		if(detail==null) {
+			return null;
+		}
+			mav.addObject("detail", detail);
+		
+		return mav;
+	}
+	
+	
+	
+	
 	
 }

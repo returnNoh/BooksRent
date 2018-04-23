@@ -19,9 +19,9 @@ public class SqlBooksDAO extends SqlSessionDaoSupport implements BooksDao {
 		return getSqlSession().selectOne("selectBookCount", map);
 	}
 	@Override
-	public BooksDTO detail() throws DataAccessException {
+	public BooksDTO detail(int num) throws DataAccessException {
 		// TODO Auto-generated method stub
-		return null;
+		return getSqlSession().selectOne("book_detail",num);
 	}
 	@Override
 	public void book_regist(BooksDTO dto) throws DataAccessException {

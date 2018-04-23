@@ -91,7 +91,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  	</select>
 
 <!-- 3. 책 상세보기 .. 하지말까.. -->
-
+<select id="book_detail" parameterType="int" resultType="books_info">
+	select * from books_info where book_num=#{value}
+</select>
 
 <!-- 4. 책 추가하기  -->
 
