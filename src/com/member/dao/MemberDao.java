@@ -10,5 +10,6 @@ public interface MemberDao {
 	public int GetNum();
 	public void Log_Insert(MemberDTO dto);
 	public void Log_Update(MemberDTO dto);
+	public String duplicate_check(String p_email);
 	
 }

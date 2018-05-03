@@ -37,6 +37,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  		update member_log set con_result=1 where con_time=#{con_time}
  	</update>
  	
+ 	<select id="duplicate_check" parameterType="String" resultType="String">
+ 		select p_email from member_login where p_email=#{p_email}
+ 	</select>
+ 	
  	
  	
  

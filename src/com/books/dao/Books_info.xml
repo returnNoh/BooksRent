@@ -11,22 +11,22 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  		select count(*) from books_info
  		<where>
  					<if test="keyWord!=null and keyField=='name'">
- 						book_name like CONCAT('%',#keyWord#,'%')
+ 						book_name like CONCAT('%',#{keyWord},'%')
  					</if>
  					<if test="keyWord!=null and keyField=='company'">
- 						book_company like CONCAT('%',#keyWord#,'%')
+ 						book_company like CONCAT('%',#{keyWord},'%')
  					</if>
  					<if test="keyWord!=null and keyField=='tag'">
- 						book_tag like CONCAT('%',#keyWord#,'%')
+ 						book_tag like CONCAT('%',#{keyWord},'%')
  					</if>
  					<if test="keyWord!=null and keyField=='num'">
- 						book_num like CONCAT('%',#keyWord#,'%')
+ 						book_num like CONCAT('%',#{keyWord},'%')
  					</if>
  					<if test="keyWord!=null and keyField=='all'">
- 						book_name like CONCAT('%',#keyWord#,'%') or
- 						book_company like CONCAT('%',#keyWord#,'%') or
- 						book_tag like CONCAT('%',#keyWord#,'%') or
- 						book_num like CONCAT('%',#keyWord#,'%')
+ 						book_name like CONCAT('%',#{keyWord},'%') or
+ 						book_company like CONCAT('%',#{keyWord},'%') or
+ 						book_tag like CONCAT('%',#{keyWord},'%') or
+ 						book_num like CONCAT('%',#{keyWord},'%')
  						
 
  					</if>
@@ -65,26 +65,25 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  	</select> -->
  	<!-- MySql -->
  	<select id="selectBookList" parameterType="map" resultType="books_info">
- 		select *
- 		from books_info
+ 		select * from books_info
  					<where>
  					<if test="keyWord!=null and keyField=='name'">
- 						book_name like CONCAT('%',#keyWord#,'%')
+ 						book_name like CONCAT('%',#{keyWord},'%')
  					</if>
  					<if test="keyWord!=null and keyField=='company'">
- 						book_company like CONCAT('%',#keyWord#,'%')
+ 						book_company like CONCAT('%',#{keyWord},'%')
  					</if>
  					<if test="keyWord!=null and keyField=='tag'">
- 						book_tag like CONCAT('%',#keyWord#,'%')
+ 						book_tag like CONCAT('%',#{keyWord},'%')
  					</if>
  					<if test="keyWord!=null and keyField=='num'">
- 						book_num like CONCAT('%',#keyWord#,'%')
+ 						book_num like CONCAT('%',#{keyWord},'%')
  					</if>
  					<if test="keyWord!=null and keyField=='all'">
- 						book_name like CONCAT('%',#keyWord#,'%') or
- 						book_company like CONCAT('%',#keyWord#,'%') or
- 						book_tag like CONCAT('%',#keyWord#,'%') or
- 						book_num like CONCAT('%',#keyWord#,'%')
+ 						book_name like CONCAT('%',#{keyWord},'%') or
+ 						book_company like CONCAT('%',#{keyWord},'%') or
+ 						book_tag like CONCAT('%',#{keyWord},'%') or
+ 						book_num like CONCAT('%',#{keyWord},'%')
  					</if>
  					</where>
  					order by time_book_insert desc limit #{start},#{end}

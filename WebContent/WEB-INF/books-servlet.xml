@@ -74,6 +74,7 @@ value="org.springframework.web.servlet.view.JstlView"></property>
  class="org.springframework.web.servlet.mvc.ParameterizableViewController">
  <property name="viewName" value="main"></property>
  </bean>
+ 
  <bean name="/main2.books"
  class="org.springframework.web.servlet.mvc.ParameterizableViewController">
  <property name="viewName" value="main2"></property>
@@ -85,6 +86,7 @@ value="org.springframework.web.servlet.view.JstlView"></property>
  <bean class="action.BookRegistController"/>
  <bean class="action.BookListController"/>
  <bean class="action.MyPageController"/>
+ <bean class="action.apiController"/>
 
  
  <bean id="emailcheck" class="mail.Email"/>

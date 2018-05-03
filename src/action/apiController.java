@@ -65,29 +65,29 @@ public class apiController {
 	}
 	
 	
-	@RequestMapping(value="bookListAPI.books",method=RequestMethod.GET)
-	public ModelAndView bookListAPI(
-			@RequestParam(value="pageNum",defaultValue="1") int currentPage,
-			@RequestParam(value="keyField",defaultValue="") String keyField,
-			@RequestParam(value="keyWord",defaultValue="") String keyWord) {
-		ModelAndView mav = new ModelAndView("jsonView");
-		
-		Map<String,Object> map = new HashMap<String,Object>();
-		map.put("keyField", keyField);
-		map.put("keyWord", keyWord);
-		int count = book_dao.bookListCount(map);
-		PagingUtil page = new PagingUtil(currentPage,count,3,3,"bookList.books");
-		map.put("start", page.getStartCount());
-		map.put("end", page.getEndCount());
-		
-			if(count>0) {
-			mav.addObject("booklist", book_dao.bookList(map));
-			}
-//			mav.addObject("count",count);
-//			mav.addObject("pagingHtml", page.getPagingHtml());
-		
-		return mav;
-	}
+//	@RequestMapping(value="bookListAPI.books",method=RequestMethod.GET)
+//	public ModelAndView bookListAPI(
+//			@RequestParam(value="pageNum",defaultValue="1") int currentPage,
+//			@RequestParam(value="keyField",defaultValue="") String keyField,
+//			@RequestParam(value="keyWord",defaultValue="") String keyWord) {
+//		ModelAndView mav = new ModelAndView("jsonView");
+//		
+//		Map<String,Object> map = new HashMap<String,Object>();
+//		map.put("keyField", keyField);
+//		map.put("keyWord", keyWord);
+//		int count = book_dao.bookListCount(map);
+//		PagingUtil page = new PagingUtil(currentPage,count,3,3,"bookList.books");
+//		map.put("start", page.getStartCount());
+//		map.put("end", page.getEndCount());
+//		
+//			if(count>0) {
+//			mav.addObject("booklist", book_dao.bookList(map));
+//			}
+////			mav.addObject("count",count);
+////			mav.addObject("pagingHtml", page.getPagingHtml());
+//		
+//		return mav;
+//	}
 	
 	@RequestMapping(value="registerAPI.books",method=RequestMethod.POST)
 	public ModelAndView regist(@RequestParam("p_email") String p_email,
@@ -168,7 +168,20 @@ public class apiController {
 	
 	
 	
-	
+	@RequestMapping(value="DuplicatecheckAPI.books",method=RequestMethod.GET)
+	public ModelAndView Duplicatecheck (@RequestParam("p_email") String p_email) {
+		ModelAndView mav = new ModelAndView("jsonView");
+		Boolean check = false;
+		String str = mem_dao.duplicate_check(p_email);
+		
+		if(str!=null)check=true;
+			
+			
+			
+		mav.addObject("check", check);
+		
+		return mav;
+	}
 	
 	
 	

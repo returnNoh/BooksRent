@@ -25,7 +25,7 @@ public class BookListController {
 	@RequestMapping(value="bookList.books",method=RequestMethod.GET)
 	public ModelAndView bookList(
 			@RequestParam(value="pageNum",defaultValue="1") int currentPage,
-			@RequestParam(value="keyField",defaultValue="") String keyField,
+			@RequestParam(value="keyField",defaultValue="all") String keyField,
 			@RequestParam(value="keyWord",defaultValue="") String keyWord) {
 		ModelAndView mav = new ModelAndView("books/booksList");
 		
@@ -33,9 +33,13 @@ public class BookListController {
 		map.put("keyField", keyField);
 		map.put("keyWord", keyWord);
 		int count = dao.bookListCount(map);
-		PagingUtil page = new PagingUtil(currentPage,count,3,3,"bookList.books");
-		map.put("start", page.getStartCount());
-		map.put("end", page.getEndCount());
+		PagingUtil page = new PagingUtil(keyField,keyWord,currentPage,count,3,3,"bookList.books");
+		map.put("start", page.getStartCount()-1);
+//		map.put("end", page.getEndCount());
+		map.put("end", 3); // 귀찮으니 정수로 그냥 주자.. mysql 장장맨
+		//System.out.println(page.getEndCount()+"확인용");
+		
+		System.out.println("값없나"+count+page.getStartCount());
 		
 		if(count>0) {
 			mav.addObject("list", dao.bookList(map));
@@ -83,7 +87,7 @@ public class BookListController {
 	@RequestMapping(value="bookListAPI.books",method=RequestMethod.GET)
 	public ModelAndView bookListAPI(
 			@RequestParam(value="pageNum",defaultValue="1") int currentPage,
-			@RequestParam(value="keyField",defaultValue="") String keyField,
+			@RequestParam(value="keyField",defaultValue="all") String keyField,
 			@RequestParam(value="keyWord",defaultValue="") String keyWord) {
 		ModelAndView mav = new ModelAndView("jsonView");
 		
@@ -91,12 +95,17 @@ public class BookListController {
 		map.put("keyField", keyField);
 		map.put("keyWord", keyWord);
 		int count = dao.bookListCount(map);
-		PagingUtil page = new PagingUtil(currentPage,count,3,3,"bookList.books");
-		map.put("start", page.getStartCount());
-		map.put("end", page.getEndCount());
+		System.out.println("몇개있니"+count);
+		//PagingUtil page = new PagingUtil(currentPage,count,3,3,"bookList.books");
+		map.put("start", 0);
+		map.put("end", 3);
+		
+		List list = null ;
 		
 		if(count>0) {
-			mav.addObject("booklist", dao.bookList(map));
+			list = dao.bookList(map);
+			System.out.println("list있니"+list);
+			mav.addObject("booklist", list);
 			}
 //			mav.addObject("count",count);
 //			mav.addObject("pagingHtml", page.getPagingHtml());

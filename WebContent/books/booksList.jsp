@@ -221,6 +221,16 @@ _________________________________________________________ -->
 
 
                     </div>
+                    <form method="get" action="bookList.books">
+                    <select name="keyField">
+                    <option value="name">책제목</option>
+                    <option value="company">출판사</option>
+                    <option value="tag">태그</option>
+                    <option value="num">책번호</option>
+                    </select>
+                    <input type="text" name="keyWord" placeholder="검색어">
+                    <input type="submit" value="검색!">
+                    </form>
                     <!-- /.col-md-9 -->
 					</div>
                     <!-- *** LEFT COLUMN END *** -->

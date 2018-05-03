@@ -81,8 +81,8 @@ _________________________________________________________ -->
                                 <label for="email">Email</label>
                                 <input type="email" class="form-control" id="email" name="p_email">
                             </div>
-                            <input type="button" id="check" class="btn btn-default" value="인증메일보내기" onclick="EmailCheck()">
-                            
+                            <input type="button" id="check" class="btn btn-default" value="중복체크" onclick="idCheck()">
+                            <div id="checkText"></div>
                             <div class="form-group">
                                 <label for="password">Password</label>
                                 <input type="password" class="form-control" id="passwd" name="p_passwd">
@@ -168,6 +168,20 @@ _________________________________________________________ -->
 				'if(check_num=='+data+'){alert("인증완료")}else{alert("번호다름")}}">')
 		},error:function(){
 			alert('오류오류')
+		}
+		})
+	}
+	
+	function idCheck(){
+		var p_email = $('#email').val();
+		$.ajax({url:"DuplicatecheckAPI.books",data:{'p_email':p_email},success:function(data){
+				var check = data.check
+				alert(check);
+				if(check==true){
+					$('#checkText').html('사용 불가능한 아이디 입니다.')
+				}else{
+					$('#checkText').html('사용 가능한 아이디 입니다.')
+				}
 		}
 		})
 	}

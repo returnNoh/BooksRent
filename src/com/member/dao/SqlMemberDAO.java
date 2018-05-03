@@ -44,6 +44,12 @@ public class SqlMemberDAO extends SqlSessionDaoSupport implements MemberDao {
 		getSqlSession().update("log_update",dto);
 	}
 
+	@Override
+	public String duplicate_check(String p_email) {
+		// TODO Auto-generated method stub
+		return getSqlSession().selectOne("duplicate_check", p_email);
+	}
+
 	
 
 }
